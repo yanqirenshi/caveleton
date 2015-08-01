@@ -30,4 +30,5 @@
        :output ,(getf (config) :error-log))
      nil)
  :session
+ :validation
  *web*)

@@ -13,6 +13,7 @@
                :envy
                :cl-ppcre
                :uiop
+               :lack-middleware-validation
                :jonathan    ;; Json
                :spinneret   ;; Html
                :parenscript ;; JavaScript
