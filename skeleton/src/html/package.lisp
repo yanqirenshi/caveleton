@@ -12,6 +12,14 @@
      (:html
       (:head
        (:title ,title)
-       (:link :rel "stylesheet" :href "/css/common.css" :type "text/css")
-       (:script :src "https://code.jquery.com/jquery-2.1.4.min.js"))
+       ;; jquery 
+       (:script :src "/lib/jquery-2.1.4.min.js")
+       ;; bootstrap
+       (:link :rel "stylesheet" :href "/lib/bootstrap/3.3.5/css/bootstrap.min.css" :type "text/css")
+       (:link :rel "stylesheet" :href "/lib/bootstrap/3.3.5/css/bootstrap-theme.min.css" :type "text/css")
+       (:script :src "/lib/bootstrap/3.3.5/js/bootstrap.min.js")
+       ;; other js
+       (:script :src "/lib/format4js.js")
+       (:script :src "/lib/moment.min.js")
+       (:link :rel "stylesheet" :href "/css/common.css" :type "text/css"))
       (:body ,@body))))
