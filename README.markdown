@@ -2,6 +2,8 @@
 
 ## Usage
 
+`(caveleton:make-project #P"/path/to/myapp/" :author "<Your full name>")`
+
 ## Installation
 
 ## Author
