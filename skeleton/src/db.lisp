@@ -1,11 +1,11 @@
 (in-package :cl-user)
 (defpackage <% @var name %>.db
   (:use :cl)
-  (:import-from :<% @var name %>.config
-                :config)
-  (:export :*graph*
-           :start
-           :stop))
+  (:import-from #:<% @var name %>.config
+                #:config)
+  (:export #:*graph*
+           #:start
+           #:stop))
 (in-package :<% @var name %>.db)
 
 (defparameter *graph* nil)

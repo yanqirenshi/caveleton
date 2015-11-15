@@ -2,17 +2,17 @@
 
 (defpackage <% @var name %>.app
   (:use :cl)
-  (:import-from :lack.builder
-                :builder)
-  (:import-from :ppcre
-                :scan
-                :regex-replace)
-  (:import-from :<% @var name %>.web
-                :*web*)
-  (:import-from :<% @var name %>.config
-                :config
-                :productionp
-                :*static-directory*))
+  (:import-from #:lack.builder
+                #:builder)
+  (:import-from #:ppcre
+                #:scan
+                #:regex-replace)
+  (:import-from #:<% @var name %>.web
+                #:*web*)
+  (:import-from #:<% @var name %>.config
+                #:config
+                #:productionp
+                #:*static-directory*))
 (in-package :<% @var name %>.app)
 
 (builder

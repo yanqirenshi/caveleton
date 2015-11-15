@@ -1,16 +1,16 @@
 (in-package :cl-user)
 (defpackage <% @var name %>.config
   (:use :cl)
-  (:import-from :envy
-                :config-env-var
-                :defconfig)
-  (:export :config
-           :*application-root*
-           :*static-directory*
-           :*template-directory*
-           :appenv
-           :developmentp
-           :productionp))
+  (:import-from #:envy
+                #:config-env-var
+                #:defconfig)
+  (:export #:config
+           #:*application-root*
+           #:*static-directory*
+           #:*template-directory*
+           #:appenv
+           #:developmentp
+           #:productionp))
 (in-package :<% @var name %>.config)
 
 (setf (config-env-var) "APP_ENV")

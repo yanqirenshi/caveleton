@@ -1,13 +1,13 @@
 (in-package :cl-user)
 (defpackage <% @var name %>.view
   (:use :cl)
-  (:import-from :<% @var name %>.config
-                :*template-directory*)
-  (:import-from :caveman2
-                :*response*
-                :response-headers)
-  (:export :render
-           :render-json))
+  (:import-from #:<% @var name %>.config
+                #:*template-directory*)
+  (:import-from #:caveman2
+                #:*response*
+                #:response-headers)
+  (:export #:render
+           #:render-json))
 (in-package :<% @var name %>.view)
 
 (defun render-json (object)

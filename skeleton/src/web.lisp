@@ -5,7 +5,7 @@
         :<% @var name %>.config
         :<% @var name %>.view
         :<% @var name %>.db)
-  (:export :*web*))
+  (:export #:*web*))
 (in-package :<% @var name %>.web)
 
 ;;;;;
