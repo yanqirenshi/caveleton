@@ -4,7 +4,8 @@
         :caveman2
         :<% @var name %>.config
         :<% @var name %>.view
-        :<% @var name %>.db)
+        :<% @var name %>.db
+        :<% @var name %>.html)
   (:export #:*web*))
 (in-package :<% @var name %>.web)
 
@@ -19,7 +20,7 @@
 ;;;;; Routing rules
 ;;;;;
 (defroute "/" ()
-  "Welcome Cavelton")
+  (index.html))
 
 ;;;;;
 ;;;;; Error pages
