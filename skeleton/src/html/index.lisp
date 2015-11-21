@@ -1,4 +1,4 @@
-(in-package :some-cockpit.html)
+(in-package :<% @var name %>.html)
 
 (defun index.html ()
   (with-page (:title "Index.html")
