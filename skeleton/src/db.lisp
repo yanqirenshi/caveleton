@@ -15,7 +15,7 @@
 
 (defun start ()
   (when *graph* (error "aledy started graph."))
-  (let ((data-stor (config-data-stor)))
+  (let ((data-stor (config :database :data :stor)))
     (setf *graph*
           (shinra:make-banshou 'shinra:banshou data-stor))))
 

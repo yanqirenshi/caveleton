@@ -25,9 +25,9 @@
  (if (productionp)
      nil
      :accesslog)
- (if (getf (config) :error-log)
+ (if (config+ :log :error :directory)
      `(:backtrace
-       :output ,(getf (config) :error-log))
+       :output ,(config+ :log :error :directory))
      nil)
  :session
  :validation

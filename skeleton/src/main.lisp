@@ -14,7 +14,10 @@
 
 (defvar *handler* nil)
 
-(defun start (&rest args &key (server :woo) (port 55555) debug &allow-other-keys)
+(defun start (&rest args &key
+                           (server (config :http :server :type))
+                           (port (config :http :server :port))
+                           debug &allow-other-keys)
   (declare (ignore debug))
   (when *handler*
     (restart-case (error "Server is already running.")

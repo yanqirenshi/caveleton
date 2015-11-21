@@ -20,7 +20,8 @@
                :lass        ;; Css
                ;; Database
                :upanishad
-               :shinrabanshou)
+               :shinrabanshou
+               :sephirothic)
   :components ((:module "src"
                 :components
                 ;;
