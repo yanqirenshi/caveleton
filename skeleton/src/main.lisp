@@ -19,6 +19,8 @@
                            (port (config :http :server :port))
                            debug &allow-other-keys)
   (declare (ignore debug))
+  (unless <% @var name %>.db:*graph*
+          (<% @var name %>.db:start))
   (when *handler*
     (restart-case (error "Server is already running.")
       (restart-server ()
@@ -30,4 +32,6 @@
 (defun stop ()
   (prog1
       (clack:stop *handler*)
-    (setf *handler* nil)))
+    (setf *handler* nil)
+    (when <% @var name %>.db:*graph*
+          (<% @var name %>.db:stop)))

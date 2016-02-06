@@ -10,9 +10,6 @@
 
 (defparameter *graph* nil)
 
-(defun config-data-stor ()
-  (getf (config :databases) :data-stor))
-
 (defun start ()
   (when *graph* (error "aledy started graph."))
   (let ((data-stor (config :database :data :stor)))
@@ -21,4 +18,5 @@
 
 (defun stop ()
   (when *graph*
-    (up:close-open-streams *graph*)))
+    (up:close-open-streams *graph*)
+    (setf *graph* nil)))

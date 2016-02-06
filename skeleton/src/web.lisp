@@ -2,7 +2,7 @@
 (defpackage <% @var name %>.web
   (:use :cl
         :caveman2
-        :lack-middleware-validation
+        :lack.middleware.validation
         :<% @var name %>.config
         :<% @var name %>.view
         :<% @var name %>.db

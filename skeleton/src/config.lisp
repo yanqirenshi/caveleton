@@ -3,15 +3,15 @@
             (:use :cl)
             (:import-from #:sephirothic
                           #:make-tree
-                          #:get-sephirothic-context
                           #:fruit*
                           #:code)
             (:export #:config
+                     #:print-config
                      #:*application-root*
                      #:*static-directory*))
 (in-package :<% @var name %>.config)
 
-(defparameter *application-root* (asdf:system-source-directory :gp-web))
+(defparameter *application-root* (asdf:system-source-directory :<% @var name %>))
 (defparameter *static-directory* (merge-pathnames #P"static/" *application-root*))
 
 (defvar *tree-stor* nil)
@@ -25,14 +25,21 @@
         (t :unknown)))
 
 (defun get-sephirothic-context ()
-  (get-common-sephirothic-context :tree *tree*
-                                  :application-code *application-code*
-                                  :environment-code (get-environments-code)))
+  (sephirothic:get-sephirothic-context :tree *tree*
+                                       :application-code *application-code*
+                                       :environment-code (get-environments-code)))
 
 (defun config (&rest query)
   (multiple-value-bind (tree appl env)
       (get-sephirothic-context)
     (fruit* tree (code appl) (code env) query)))
+
+(defun print-config ()
+  (multiple-value-bind (graph appl env appl-code env-code)
+      (get-sephirothic-context)
+    (format t "Graph: ~a~%" graph)
+    (format t " Appl: ~a => ~a~%" appl appl-code)
+    (format t "  Env: ~a => ~a~%" env env-code)))
 
 (defun (setf config) (value &rest query)
   (multiple-value-bind (tree appl env)

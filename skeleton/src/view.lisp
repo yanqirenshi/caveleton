@@ -1,8 +1,6 @@
 (in-package :cl-user)
 (defpackage <% @var name %>.view
   (:use :cl)
-  (:import-from #:<% @var name %>.config
-                #:*template-directory*)
   (:import-from #:caveman2
                 #:*response*
                 #:response-headers)
