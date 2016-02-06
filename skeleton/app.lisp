@@ -11,7 +11,6 @@
                 #:*web*)
   (:import-from #:<% @var name %>.config
                 #:config
-                #:productionp
                 #:*static-directory*))
 (in-package :<% @var name %>.app)
 
@@ -22,12 +21,10 @@
               path
               nil))
   :root *static-directory*)
- (if (productionp)
-     nil
-     :accesslog)
- (if (config+ :log :error :directory)
+ :accesslog
+ (if (config :log :error :directory)
      `(:backtrace
-       :output ,(config+ :log :error :directory))
+       :output ,(config :log :error :directory))
      nil)
  :session
  :validation
