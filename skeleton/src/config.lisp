@@ -14,8 +14,8 @@
 (defparameter *application-root* (asdf:system-source-directory :<% @var name %>))
 (defparameter *static-directory* (merge-pathnames #P"static/" *application-root*))
 
-(defvar *tree-stor* nil)
-(defvar *tree* (make-tree (or *tree-stor* (error "*tree-stor* is empty."))))
+(defvar *tree-stor* (merge-pathnames #P"src/data/" *application-root*))
+(defvar *tree* (make-tree (ensure-directories-exist *tree-stor*)))
 
 (defvar *application-code* :<% @var name %>)
 

@@ -34,4 +34,4 @@
       (clack:stop *handler*)
     (setf *handler* nil)
     (when <% @var name %>.db:*graph*
-          (<% @var name %>.db:stop)))
+          (<% @var name %>.db:stop))))
