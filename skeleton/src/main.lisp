@@ -19,6 +19,8 @@
                            (port (config :http :server :port))
                            debug &allow-other-keys)
   (declare (ignore debug))
+  (unless server (error "(config :http :server :type) is nil"))
+  (unless port (error "(config :http :server :port) is nil"))
   (unless <% @var name %>.db:*graph*
           (<% @var name %>.db:start))
   (when *handler*
