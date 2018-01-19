@@ -7,12 +7,10 @@
                           #:code)
             (:export #:config
                      #:print-config
-                     #:*application-root*
-                     #:*static-directory*))
+                     #:*application-root*))
 (in-package :<% @var name %>.config)
 
 (defparameter *application-root* (asdf:system-source-directory :<% @var name %>))
-(defparameter *static-directory* (merge-pathnames #P"static/" *application-root*))
 
 (defvar *tree-stor* (merge-pathnames #P"src/data/" *application-root*))
 (defvar *tree* (make-tree (ensure-directories-exist *tree-stor*)))

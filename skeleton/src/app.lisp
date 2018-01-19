@@ -7,20 +7,15 @@
   (:import-from #:ppcre
                 #:scan
                 #:regex-replace)
-  (:import-from #:<% @var name %>.web
-                #:*web*)
+  (:import-from #:<% @var name %>.router
+                #:*route*)
+  (:import-from #:<% @var name %>.api-v1
+                #:*api-v1*)
   (:import-from #:<% @var name %>.config
-                #:config
-                #:*static-directory*))
+                #:config))
 (in-package :<% @var name %>.app)
 
 (builder
- (:static
-  :path (lambda (path)
-          (if (ppcre:scan "^(?:/images/|/css/|/js/|/lib/|/robot\\.txt$|/favicon\\.ico$)" path)
-              path
-              nil))
-  :root *static-directory*)
  :accesslog
  (if (config :log :error :directory)
      `(:backtrace
@@ -28,4 +23,5 @@
      nil)
  :session
  :validation
- *web*)
+ (:mount "/api/v1" *api-v1*)
+ *route*)

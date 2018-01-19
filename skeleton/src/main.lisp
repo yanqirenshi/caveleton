@@ -10,7 +10,7 @@
 (in-package :<% @var name %>)
 
 (defvar *appfile-path*
-  (asdf:system-relative-pathname :<% @var name %> #P"app.lisp"))
+  (asdf:system-relative-pathname :<% @var name %> #P"src/app.lisp"))
 
 (defvar *handler* nil)
 
@@ -21,8 +21,6 @@
   (declare (ignore debug))
   (unless server (error "(config :http :server :type) is nil"))
   (unless port (error "(config :http :server :port) is nil"))
-  (unless <% @var name %>.db:*graph*
-          (<% @var name %>.db:start))
   (when *handler*
     (restart-case (error "Server is already running.")
       (restart-server ()
@@ -34,6 +32,4 @@
 (defun stop ()
   (prog1
       (clack:stop *handler*)
-    (setf *handler* nil)
-    (when <% @var name %>.db:*graph*
-          (<% @var name %>.db:stop))))
+    (setf *handler* nil)))

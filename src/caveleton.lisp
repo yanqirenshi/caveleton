@@ -11,6 +11,3 @@
 (defun make-project (path &rest params)
   (let ((cl-project:*skeleton-directory* (skeleton-directory)))
     (apply #'cl-project:make-project path params)))
-
-
-

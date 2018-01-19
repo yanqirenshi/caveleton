@@ -4,4 +4,3 @@
   (:import-from #:<% @var name %>.config
                 #:config))
 (in-package :<% @var name %>.controller)
-
